@@ -1,0 +1,32 @@
+section#recipe-details {
+    margin-bottom: 40px;
+}
+
+section#comments-section {
+    margin-top: 40px;
+}
+
+h2, h3 {
+    margin-top: 0;
+}
+
+ul, ol {
+    margin-top: 0;
+}
+
+#comments {
+    margin-bottom: 20px;
+}
+
+#add-comment {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#add-comment:hover {
+    background-color: #0056b3;
+}
