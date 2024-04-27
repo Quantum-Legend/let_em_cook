@@ -1,0 +1,28 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/forms.css">
+</head>
+<body>
+    <header>
+        <h1>Let 'Em Cook!</h1>
+        <h4>A place to share your recipes with the world!</h4>
+    </header>
+    <main>
+        <form id="loginForm" onsubmit="validateForm('loginForm, ../backend/login.php')" method="post">
+            <label for="username_or_email">Enter your username or E-mail ID: </label>
+            <input type="text" id="username_or_email" name="username_or_email" required><br>
+            <label for="password">Enter your Password: </label>
+            <input type="password" id="password" name="password" required><br>
+            <input type="submit">
+        </form>
+    <footer>
+        <p>&copy; 2024 Let 'em Cook! - Recipe Sharing Platform</p>  
+    </footer>
+
+    <script src="js/form_validation.js"></script>
+</body>
+</html>
