@@ -1,19 +1,48 @@
-section#recipe-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-gap: 20px;
-}
-
 .recipe-item {
     border: 1px solid #ddd;
     border-radius: 5px;
     padding: 15px;
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative; /* Add position relative */
+    overflow: hidden; /* Hide overflow */
+}
+
+.recipe-item:hover {
+    transform: scaleY(1.05); /* Scale up the card when hovered */
 }
 
 .recipe-item h2 {
     margin-top: 0;
+    margin-bottom: -20px;
+    text-decoration: underline 2px solid #ffde84;
+}
+
+.recipe-item img {
+    width: 250px; /* Adjust the width as desired */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.recipe-item li {
+    overflow-y: hidden;
+    font-size: larger;
+    display: block; /* Display the list items by default */
+    opacity: 0; /* Set opacity to 0 for smooth transition */
+    transition: opacity 0.3s ease, max-height 0.3s ease; /* Add transition for smooth opacity change and max-height */
+    max-height: 0; /* Initially hide the list items */
+    overflow: hidden; /* Hide overflow to prevent initial flickering */
+}
+
+.recipe-item:hover li {
+    max-height: 1000px; /* Set a maximum height for the list items */
+    opacity: 1; /* Fade in the list items */
+    transition-delay: 0.3s; /* Add a delay to the transition */
+}
+
+.recipe-item li span .content{
+    text-align: left;
+    padding-left: 20%;
+    margin-bottom: 2%;
 }
 
 .pagination {
@@ -32,4 +61,8 @@ section#recipe-list {
 
 .pagination button:hover {
     background-color: #0056b3;
+}
+
+.recipe-item p{
+    font-style: italic;
 }

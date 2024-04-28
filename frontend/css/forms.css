@@ -30,13 +30,6 @@ input[type="submit"]:hover {
     background-color: #0056b3;
 }
 
-fieldset {
-    border: 2px solid #ccc; /* Border color and width */
-    border-radius: 5px; /* Rounded corners */
-    padding: 20px; /* Padding inside the fieldset */
-    margin-bottom: 20px; /* Spacing between fieldsets */
-}
-
 .error-message {
     color: #ff0000; /* Red color for error messages */
     font-size: 0.8em; /* Adjust font size */

@@ -46,8 +46,14 @@ function validateForm(formId, actionUrl) {
                     // Successful response
                     var response = JSON.parse(xhr.responseText);
                     if (response.success) {
-                        // Authentication successful, redirect to browse_recipes.html
-                        window.location.href = "../frontend/browse_recipes.html";
+                        // Redirect based on actionUrl
+                        if (actionUrl.includes("register.php")) {
+                            // Redirect to login page after successful registration
+                            window.location.href = "../frontend/login.html";
+                        } else if (actionUrl.includes("login.php")) {
+                            // Redirect to browse_recipes.html after successful login
+                            window.location.href = "../frontend/browse_recipes.php";
+                        }
                     } else {
                         // Authentication failed, display server-side error message
                         showError(form.querySelector("#username_or_email"), response.message);

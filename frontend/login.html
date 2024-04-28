@@ -8,16 +8,19 @@
 </head>
 <body>
     <header>
-        <h1>Let 'Em Cook!</h1>
-        <h4>A place to share your recipes with the world!</h4>
+        <img src="./images/bg.jpg" class="background-image"/>
+        <div class="overlay">
+            <h1>Let 'Em Cook!</h1>
+            <h4>A place to share your recipes with the world!</h4>
+        </div>
     </header>
     <main>
-        <form id="loginForm" onsubmit="validateForm('loginForm, ../backend/login.php')" method="post">
+        <form id="loginForm" method="post">
             <label for="username_or_email">Enter your username or E-mail ID: </label>
             <input type="text" id="username_or_email" name="username_or_email" required><br>
             <label for="password">Enter your Password: </label>
             <input type="password" id="password" name="password" required><br>
-            <input type="submit">
+            <input type="submit" onclick="return validateForm('loginForm', '../backend/login.php')">
         </form>
     <footer>
         <p>&copy; 2024 Let 'em Cook! - Recipe Sharing Platform</p>  
