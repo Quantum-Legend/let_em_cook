@@ -37,6 +37,7 @@
     if (mysqli_num_rows($result) > 0) {
         // Loop through each recipe and display them
         while ($row = mysqli_fetch_assoc($result)) {
+            $id = $row['id']; // Assuming 'recipe_id' is the primary key
             $title = $row['title'];
             $description = $row['description'];
             $ingredients = $row['ingredients'];
@@ -51,11 +52,17 @@
             echo "<p>$description</p>";
             echo "<img src='$image_path' alt='$title' class='recipe-image'>"; // Display the image
             echo "<ul>";
-            // You may need to format ingredients and instructions appropriately
+            // Format ingredients and instructions
             echo "<li><strong>Ingredients<br/></strong><span><div class='content'>$ingredients</div></span></li>";
             echo "<li><strong>Instructions<br/></strong><span><div class='content'>$instructions_html</div></span></li>";
-
             echo "</ul>";
+
+            // Add a delete button
+            echo "<form action='../backend/delete_recipe.php' method='POST'>";
+            echo "<input type='hidden' name='recipe_id' value='$id'>";
+            echo "<input type='submit' value='Delete' class='delete-button'>";
+            echo "</form>";
+
             echo "</article>";
         }
     } else {
@@ -68,8 +75,19 @@
     ?>
     </section>
 </main>
+
 <footer>
     <p>&copy; 2024 Recipe Sharing Platform</p>
 </footer>
+<script>
+document.querySelectorAll('.delete-button').forEach(button => {
+    button.addEventListener('click', function(event) {
+        if (!confirm('Are you sure you want to delete this recipe?')) {
+            event.preventDefault();
+        }
+    });
+});
+</script>
+
 </body>
 </html>
